@@ -6,7 +6,7 @@ RUN apt-get install -y \
         coreutils curl git grep \
         locales sudo tzdata
 # Optional
-RUN apt-get install -y fish zsh vim-nox tmux
+RUN apt-get install -y fish zsh emacs vim-nox python3 tmux
 
 ENV LOGIN=worker \
     HOME=/home/work \
