@@ -1,4 +1,5 @@
 FROM debian:latest
+ENV PEARL_VERSION=1.7.2
 
 RUN apt-get update -y && apt-get upgrade -y
 # Dependencies
