@@ -14,9 +14,10 @@ RUN sudo apt-get autoremove -y && sudo apt-get clean -y && \
     sudo rm -rf /var/lib/apt/lists/*
 
 # Install
-COPY --chown=${UID}:${GID} ./pearl.conf ${HOME}/pearl.conf
+COPY ./pearl.conf ${HOME}/pearl.conf
 
-RUN cp /etc/skel/.profile ${HOME}/ && \
+RUN chown ${UID}:${GID} ${HOME}/pearl.conf && \
+    cp /etc/skel/.profile ${HOME}/ && \
     pip3 install --user pearl==${PEARL_VERSION} && \
     ${HOME}/.local/bin/pearl init && \
     mv ${HOME}/.config/pearl/pearl.conf \
